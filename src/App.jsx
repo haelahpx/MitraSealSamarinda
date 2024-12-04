@@ -220,7 +220,7 @@ function ContactSection() {
                   e.preventDefault();
                   const name = e.target.name.value;
                   const message = e.target.message.value;
-                  const whatsappLink = `https://wa.me/62123456789?text=Nama:%20${encodeURIComponent(
+                  const whatsappLink = `https://wa.me/6282254992215?text=Nama:%20${encodeURIComponent(
                     name
                   )}%0APesan:%20${encodeURIComponent(message)}`;
                   window.open(whatsappLink, "_blank");
@@ -288,7 +288,7 @@ function ContactSection() {
 function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/62123456789" 
+      href="https://wa.me/6282254992215" 
       target="_blank"
       rel="noopener noreferrer"
       className="fixed p-4 transition duration-200 bg-green-600 rounded-full shadow-lg bottom-4 right-4 hover:bg-green-700"
