@@ -1,0 +1,15 @@
+textarea {
+  resize: vertical; /* Makes it resizable only vertically */
+  /* Or */
+  resize: none; /* Disable resizing */
+}
+
+/* CSS untuk smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
