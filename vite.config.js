@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     outDir: 'dist', 
   },
-  base: '/MitraSealSamarinda',
+  base: '/MitraSealSamarinda/',
   plugins: [react()],
   
 })
