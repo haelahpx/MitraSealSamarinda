@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import bagImage from './assets/images/bag.jpg';
@@ -6,7 +6,7 @@ import tambahan from './assets/images/tambahan.jpg';
 
 function App() {
   useEffect(() => {
-    AOS.init({ duration: 1000 }); 
+    AOS.init({ duration: 1000 });
   }, []);
 
   return (
@@ -23,6 +23,12 @@ function App() {
 }
 
 function NavBar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="fixed top-0 z-50 w-full bg-gray-800 shadow-lg">
       <div className="px-4 mx-auto max-w-7xl">
@@ -33,13 +39,49 @@ function NavBar() {
               <span className="text-blue-600 text-outline">S</span>
             </h1>
           </div>
-          <div className="flex items-center space-x-6">
-            {/* Navigation Links */}
+
+          {/* Hamburger icon */}
+          <div className="block lg:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-white focus:outline-none"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="items-center hidden space-x-6 lg:flex">
             <a href="#hero" className="pb-1 text-white transition-all hover:border-b-2 hover:border-white">Home</a>
             <a href="#mission" className="pb-1 text-white transition-all hover:border-b-2 hover:border-white">Visi Misi</a>
             <a href="#advantage" className="pb-1 text-white transition-all hover:border-b-2 hover:border-white">Keunggulan</a>
             <a href="#contact" className="pb-1 text-white transition-all hover:border-b-2 hover:border-white">Kontak</a>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden ${isMenuOpen ? "block" : "hidden"}`}
+      >
+        <div className="flex flex-col items-center py-4 space-y-4 bg-gray-800">
+          <a href="#hero" className="text-white transition-all hover:border-b-2 hover:border-white">Home</a>
+          <a href="#mission" className="text-white transition-all hover:border-b-2 hover:border-white">Visi Misi</a>
+          <a href="#advantage" className="text-white transition-all hover:border-b-2 hover:border-white">Keunggulan</a>
+          <a href="#contact" className="text-white transition-all hover:border-b-2 hover:border-white">Kontak</a>
         </div>
       </div>
     </nav>
